@@ -10,62 +10,33 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$soundNumber.wav');
   }
 
+  Widget buildKey() {
+    return Expanded(
+      child: FlatButton(
+        onPressed: () {
+          playSound(1);
+        },
+        color: Colors.red,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
             child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            FlatButton(
-              onPressed: () {
-                playSound(1);
-              },
-              color: Colors.red,
-            ),
-            FlatButton(
-              onPressed: () {
-                // call this method when desired
-                playSound(2);
-              },
-              child: null,
-              color: Colors.orange,
-            ),
-            FlatButton(
-              onPressed: () {
-                playSound(3);
-              },
-              child: null,
-              color: Colors.green,
-            ),
-            FlatButton(
-              onPressed: () {
-                playSound(4);
-              },
-              child: null,
-              color: Colors.teal,
-            ),
-            FlatButton(
-              onPressed: () {
-                playSound(5);
-              },
-              child: null,
-              color: Colors.teal,
-            ),
-            FlatButton(
-              onPressed: () {
-                playSound(6);
-              },
-              child: null,
-              color: Colors.blue,
-            ),
-            FlatButton(
-              onPressed: () {
-                playSound(7);
-              },
-              child: null,
-              color: Colors.purple,
-            ),
+            buildKey(),
+            buildKey(),
+            buildKey(),
+            buildKey(),
+            buildKey(),
+            buildKey(),
+            buildKey(),
           ],
         )),
       ),
