@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(XylophoneApp());
 
+/*
+This arrow function is Same as code Above
+//void main() {
+//  runApp(XylophoneApp());
+//}
+*/
 class XylophoneApp extends StatelessWidget {
   void playSound(int soundNumber) {
     final player = AudioCache();
@@ -10,13 +16,13 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$soundNumber.wav');
   }
 
-  Widget buildKey() {
+  Expanded buildKey({int soundNum, Color color}) {
     return Expanded(
       child: FlatButton(
         onPressed: () {
-          playSound(1);
+          playSound(soundNum);
         },
-        color: Colors.red,
+        color: color,
       ),
     );
   }
@@ -30,13 +36,13 @@ class XylophoneApp extends StatelessWidget {
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            buildKey(),
-            buildKey(),
-            buildKey(),
-            buildKey(),
-            buildKey(),
-            buildKey(),
-            buildKey(),
+            buildKey(soundNum: 1, color: Colors.red),
+            buildKey(soundNum: 2, color: Colors.green),
+            buildKey(soundNum: 3, color: Colors.yellow),
+            buildKey(soundNum: 4, color: Colors.teal),
+            buildKey(soundNum: 5, color: Colors.blue),
+            buildKey(soundNum: 6, color: Colors.pink),
+            buildKey(soundNum: 7, color: Colors.purple),
           ],
         )),
       ),
